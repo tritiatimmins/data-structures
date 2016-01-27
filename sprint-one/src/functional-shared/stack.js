@@ -1,12 +1,33 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-
-  var 
+  //we need this to refer to an actual object
+  var stack = {
+    storage: {},
+    count: 0
+  };
+  return _.extend(stack, stackMethods);
 };
 
-var stackMethods = {};
 
+//don't forget commas!
 
-//create methods at the bottom in stack methods
-//call these in the stack function
+ var stackMethods = {
+  push: function(value) {
+    this.count = value;
+    this.count ++;
+  },
+
+  pop: function(){
+    if(this.count) {
+      this.count --;
+    }
+    return this.count;
+  },
+
+  size: function(){
+    return this.count;
+  }
+
+ };
+
