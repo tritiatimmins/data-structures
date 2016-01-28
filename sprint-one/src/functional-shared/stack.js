@@ -1,12 +1,16 @@
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
-  //we need this to refer to an actual object
+  //we need o refer to an actual object
   var stack = {
     storage: {},
     count: 0
+    // push: stackMethods.push,
+    // pop: stackMethods.pop,
+    // size: stackMethods.size
   };
-  return _.extend(stack, stackMethods);
+  _.extend(stack, stackMethods);
+  return stack;
 };
 
 
@@ -17,18 +21,16 @@ var Stack = function() {
 
   push: function(value) {
     this.storage[this.count] = value;
-    console.log("LOOK HERE", this.count);
     this.count ++;
   },
 
   pop: function(){
-    //console.log("this.count==>", this.count);
-    //delete this.storage[this.count];
 
     if(this.count) {
       this.count --;
     }
-    return this.storage;
+
+    return this.storage[this.count];
   },
 
   size: function(){
