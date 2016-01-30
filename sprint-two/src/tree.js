@@ -6,7 +6,8 @@ _.extend(newTree, treeMethods);
   newTree.value = value;
 
   // your code here
-  newTree.children = null;  // fix me
+  newTree.children = {};  // fix me
+
 
   return newTree;
 };
@@ -14,9 +15,8 @@ _.extend(newTree, treeMethods);
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
-  if(this.children === null){
-    this.children = value;
-  }
+  console.log("child value",this.children.value);
+    this.children[this.value] = value;
   //the tree structure 
   //this.children = value;
 };
