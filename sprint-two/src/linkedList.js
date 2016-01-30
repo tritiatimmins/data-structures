@@ -5,32 +5,35 @@ var LinkedList = function(){
    
 
   list.addToTail = function(value){
-    //create new node
-    //var newNode = Node(value);
-    list.head = Node(value);  
-      //change the next property of the current tail to the new node
-      list.tail = Node(value);
-      //create a variable for the current tail
-      //var currentTail = Node(value);
-
-      //set the current tail equal to the new node
-      //currentTail.next = newNode;
-      
+   //make a new node to represent the new node instance
+    var currentNode = Node(value);
+    if(!list.head){
+      list.head = currentNode;
+    }
+    if(list.tail){
+      list.tail.next = currentNode;
+    }
+    list.tail = currentNode;
+    if(list.head.next){
+    list.head.next = currentNode;
+  }
    };
  
   list.removeHead = function(){
-    
-    list.tail.next = 0;
-    console.log(list.tail.next);
+    var decapitated = list.head;
+    var currentNode = list.head;
+    list.head = currentNode.next;
+    currentNode = null
+    return decapitated.value;
  
   };
 
   list.contains = function(target){
- 
-  
-  };
 
-  return list;
+  
+}
+
+return list;
 };
 
 var Node = function(value){
