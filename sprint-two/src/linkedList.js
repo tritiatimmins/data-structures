@@ -1,3 +1,4 @@
+
 var LinkedList = function(){
   var list = {};
   list.head = null;
@@ -29,8 +30,19 @@ var LinkedList = function(){
   };
 
   list.contains = function(target){
+    //if target is a value in linked list, return true
+    //otherwise return false
+    //return the list itself
+    //how are we identifying a value that was added?
+/*if(list.hasOwnProperty(target)){
+  return true
+}
+else{
+return false;
+}
+*/
 
-  
+
 }
 
 return list;

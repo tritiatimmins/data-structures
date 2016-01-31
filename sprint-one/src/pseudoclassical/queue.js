@@ -8,25 +8,34 @@ var Queue = function() {
   this.lastInLine = 0;
 };
 
-//add
 Queue.prototype.enqueue = function(value) {
-  this.storage[this.lastInLine] = value;
-  this.count++;
-  this.firstInLine++;
-  this.lastInLine++;
-};
-//remove
-Queue.prototype.dequeue = function(){
-  // console.log("LOOK @ ME", this.firstInLine);
   
+  this.storage[this.lastInLine] = value;
+  
+  this.lastInLine++;
+  //the count increments
+  this.count++
+  //do not increment the first in line because people dont enter a line at the front
+};
+Queue.prototype.dequeue = function(){
+  //you get your sandwich, you leave the line
+  //remove the first in line of storage
+  var dequeued = this.storage[this.firstInLine];
+  //delete the value of dequeued
+  // delete this.storage[this.firstInLine];
+  
+  delete dequeued;
+  //incriment this only
+  this.firstInLine++;
+
   if(this.count){
     this.count--;
   }
-  
-  delete this.firstInLine;
-  return this.storage[this.count];
+  //returns zero
+  return dequeued;
 };
-//size
-Queue.prototype.size = function(){
+
+Queue.prototype.size = function() {
+  //ALWAYS return this count
   return this.count;
 };
